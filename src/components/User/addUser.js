@@ -3,7 +3,7 @@ import Button from "../UI/button"
 import Card from "../UI/card"
 import classes from "./addUser.module.css"
 
-function AddUser() {
+function AddUser(props) {
   const [username, setUsername] = useState("")
   const [age, setAge] = useState("")
 
@@ -16,10 +16,9 @@ function AddUser() {
     if (+age < 1) {
       return
     }
-
+    props.onAddUser(username, age)
     setUsername("")
     setAge("")
-    console.log(username, age)
   }
 
   const usernameChangeHandler = (e) => {
